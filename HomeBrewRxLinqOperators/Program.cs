@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive;
 using System.Reactive.Subjects;
 
 namespace HomeBrewRxLinqOperators
@@ -16,7 +17,7 @@ namespace HomeBrewRxLinqOperators
                 group =>
                 {
                     Console.WriteLine($"New group:{group.Key}");
-                    group.Subscribe(value => Console.WriteLine($"{group.Key}: {value}"));
+                    group.Subscribe(value => Console.WriteLine($"New value in group {group.Key}: {value}"));
                 });
 
             //IObservable<string> helloStrings = System.Reactive.Linq.Observable.Repeat("hello", 10);

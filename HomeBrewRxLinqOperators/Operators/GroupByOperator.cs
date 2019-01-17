@@ -82,8 +82,6 @@ namespace HomeBrewRxLinqOperators
                 {
                     return this.Subject.Subscribe(observer);
                 }
-
-
             }
         }
     }
