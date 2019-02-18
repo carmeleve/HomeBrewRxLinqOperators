@@ -2,13 +2,13 @@
 
 namespace HomeBrewRxLinqOperators.Operators
 {
-    internal class CallbackObserver<TLeft> : IObserver<TLeft>
+    internal class CallbackObserver<TSource> : IObserver<TSource>
     {
-        private Action<TLeft> onNext;
+        private Action<TSource> onNext;
         private Action<Exception> onError;
         private Action onCompleted;
 
-        public CallbackObserver(Action<TLeft> onNext, Action<Exception> onError, Action onCompleted)
+        public CallbackObserver(Action<TSource> onNext, Action<Exception> onError, Action onCompleted)
         {
             this.onNext = onNext;
             this.onError = onError;
@@ -25,7 +25,7 @@ namespace HomeBrewRxLinqOperators.Operators
             this.onError(error);
         }
 
-        public void OnNext(TLeft value)
+        public void OnNext(TSource value)
         {
             this.onNext(value);
         }
